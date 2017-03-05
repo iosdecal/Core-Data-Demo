@@ -8,9 +8,9 @@
 
 import UIKit
 
+/// Controller for the view containing a table view listing all of our saved dogs
 class DogTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    let dogs = ["John", "Molly", "Henry"]
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var savedDogs: [Dog] = []
     
@@ -23,7 +23,7 @@ class DogTableViewController: UIViewController, UITableViewDelegate, UITableView
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        // method I created below to get all of the saved dog objects from core data
+        // populate the savedDogs array with the Dog objects saved in core data
         fetchDogsFromCoreData()
     }
     
@@ -32,10 +32,12 @@ class DogTableViewController: UIViewController, UITableViewDelegate, UITableView
         // Dispose of any resources that can be recreated.
     }
     
+    /// Let Xcode know how many table view cells should be created
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return savedDogs.count
     }
 
+    /// Cutomize each cell with each saved dog's attributes
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = dogTableView.dequeueReusableCell(withIdentifier: "dogCell") as? DogTableViewCell {
             let dog = savedDogs[indexPath.row]
@@ -49,6 +51,7 @@ class DogTableViewController: UIViewController, UITableViewDelegate, UITableView
         return UITableViewCell()
     }
     
+    /// Allows user to delete dogs from the table view
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let dog = savedDogs[indexPath.row]
@@ -60,9 +63,7 @@ class DogTableViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.reloadData()
     }
     
-
-    
-    // use the App Delegate's Context to get the dogs saved to Core Data
+    /// Uses the App Delegate's Context to get the dogs saved to Core Data
     func fetchDogsFromCoreData() {
         do {
             savedDogs = try context.fetch(Dog.fetchRequest())

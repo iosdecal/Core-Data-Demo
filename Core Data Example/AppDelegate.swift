@@ -45,7 +45,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     // MARK: - Core Data stack
-
+    
+    // Note - this is automatically generated for you when you check "Use Core Data". I did not add any code to this method.
     lazy var persistentContainer: NSPersistentContainer = {
         /*
          The persistent container for the application. This implementation
@@ -75,6 +76,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: - Core Data Saving support
 
+    // Note - this is automatically generated for you when you check "Use Core Data". I did not add any code to this method.
     func saveContext () {
         let context = persistentContainer.viewContext
         if context.hasChanges {

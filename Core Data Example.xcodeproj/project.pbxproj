@@ -61,16 +61,32 @@
 			isa = PBXGroup;
 			children = (
 				6C396C341E6B91C900611C9D /* AppDelegate.swift */,
-				6C396C361E6B91C900611C9D /* SaveDogViewController.swift */,
-				6C396C381E6B91C900611C9D /* Main.storyboard */,
-				6C396C4F1E6B9E2100611C9D /* DogTableViewController.swift */,
+				6CC665061E6BB6FC004C3097 /* View Controllers */,
+				6CC665071E6BB718004C3097 /* Views */,
 				6C396C4D1E6B9DE300611C9D /* DogTableViewCell.swift */,
 				6C396C3E1E6B91C900611C9D /* Assets.xcassets */,
-				6C396C401E6B91C900611C9D /* LaunchScreen.storyboard */,
 				6C396C431E6B91C900611C9D /* Info.plist */,
 				6C396C3B1E6B91C900611C9D /* Core_Data_Example.xcdatamodeld */,
 			);
 			path = "Core Data Example";
+			sourceTree = "<group>";
+		};
+		6CC665061E6BB6FC004C3097 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6C396C361E6B91C900611C9D /* SaveDogViewController.swift */,
+				6C396C4F1E6B9E2100611C9D /* DogTableViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		6CC665071E6BB718004C3097 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6C396C401E6B91C900611C9D /* LaunchScreen.storyboard */,
+				6C396C381E6B91C900611C9D /* Main.storyboard */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,6 +330,7 @@
 				6C396C481E6B91C900611C9D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
