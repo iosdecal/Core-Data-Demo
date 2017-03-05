@@ -1,26 +1,252 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="EfJ-LD-jFG">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--New Dog-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SaveDogViewController" customModule="Core_Data_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Dog Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VwX-p4-PyI">
+                                <rect key="frame" x="136" y="258.5" width="160" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="jvz-ww-Nkv">
+                                <rect key="frame" x="202" y="317.5" width="94" height="29"/>
+                                <connections>
+                                    <action selector="ageStepperValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="0u1-hY-has"/>
+                                </connections>
+                            </stepper>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1sH-mS-Kgh">
+                                <rect key="frame" x="148" y="315.5" width="25" height="32.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Sk-Ax-a9N">
+                                <rect key="frame" x="24" y="258" width="77" height="31.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="77" id="BNt-Si-LSj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create a new Core Data Dog" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q5o-nI-Hju">
+                                <rect key="frame" x="24" y="114" width="272" height="104"/>
+                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="38"/>
+                                <color key="textColor" red="0.66212890619999998" green="0.66212890619999998" blue="0.66212890619999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T2b-JG-dbX">
+                                <rect key="frame" x="24" y="316" width="77" height="31.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="77" id="h8G-2A-pfP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Has Fur?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwJ-Ph-sWw">
+                                <rect key="frame" x="24" y="376.5" width="90" height="31.5"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HTP-eg-6m3">
+                                <rect key="frame" x="247" y="377" width="51" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="8ya-a2-8Rj"/>
+                                    <constraint firstAttribute="width" constant="49" id="V51-IA-uCl"/>
+                                </constraints>
+                            </switch>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IeK-JW-qO5">
+                                <rect key="frame" x="107" y="448" width="107" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Save Dog"/>
+                                <connections>
+                                    <action selector="saveDogButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NEG-79-dHD"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="T2b-JG-dbX" firstAttribute="top" secondItem="0Sk-Ax-a9N" secondAttribute="bottom" constant="26.5" id="0c9-bM-8qt"/>
+                            <constraint firstItem="1sH-mS-Kgh" firstAttribute="centerY" secondItem="T2b-JG-dbX" secondAttribute="centerY" id="0e6-p5-6hL"/>
+                            <constraint firstItem="gwJ-Ph-sWw" firstAttribute="top" secondItem="T2b-JG-dbX" secondAttribute="bottom" constant="29" id="21k-W6-JXe"/>
+                            <constraint firstItem="jvz-ww-Nkv" firstAttribute="centerY" secondItem="1sH-mS-Kgh" secondAttribute="centerY" id="52s-gU-5Qt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="VwX-p4-PyI" secondAttribute="trailing" constant="8" id="81r-wg-JEg"/>
+                            <constraint firstItem="T2b-JG-dbX" firstAttribute="leading" secondItem="0Sk-Ax-a9N" secondAttribute="leading" id="AUv-FF-ava"/>
+                            <constraint firstItem="gwJ-Ph-sWw" firstAttribute="leading" secondItem="0Sk-Ax-a9N" secondAttribute="leading" id="WrJ-A6-AZw"/>
+                            <constraint firstItem="HTP-eg-6m3" firstAttribute="trailing" secondItem="jvz-ww-Nkv" secondAttribute="trailing" id="XN7-sf-62d"/>
+                            <constraint firstItem="IeK-JW-qO5" firstAttribute="top" secondItem="gwJ-Ph-sWw" secondAttribute="bottom" constant="40" id="dqx-Kc-ljR"/>
+                            <constraint firstItem="jvz-ww-Nkv" firstAttribute="leading" secondItem="1sH-mS-Kgh" secondAttribute="trailing" constant="29" id="faB-bU-rxk"/>
+                            <constraint firstItem="VwX-p4-PyI" firstAttribute="leading" secondItem="0Sk-Ax-a9N" secondAttribute="trailing" constant="35" id="g3P-G3-017"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="0Sk-Ax-a9N" secondAttribute="leading" constant="-8" id="g7a-wZ-2KI"/>
+                            <constraint firstItem="VwX-p4-PyI" firstAttribute="centerY" secondItem="0Sk-Ax-a9N" secondAttribute="centerY" id="hMz-XM-bea"/>
+                            <constraint firstItem="q5o-nI-Hju" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="jbG-4x-f1d"/>
+                            <constraint firstItem="T2b-JG-dbX" firstAttribute="height" secondItem="0Sk-Ax-a9N" secondAttribute="height" id="lJ3-px-cT2"/>
+                            <constraint firstItem="1sH-mS-Kgh" firstAttribute="leading" secondItem="T2b-JG-dbX" secondAttribute="trailing" constant="47" id="m1X-Co-wII"/>
+                            <constraint firstItem="HTP-eg-6m3" firstAttribute="centerY" secondItem="gwJ-Ph-sWw" secondAttribute="centerY" id="mHP-3C-5si"/>
+                            <constraint firstItem="jvz-ww-Nkv" firstAttribute="trailing" secondItem="VwX-p4-PyI" secondAttribute="trailing" id="nBt-1c-xXh"/>
+                            <constraint firstItem="0Sk-Ax-a9N" firstAttribute="top" secondItem="q5o-nI-Hju" secondAttribute="bottom" constant="40" id="pXp-2D-Epn"/>
+                            <constraint firstItem="IeK-JW-qO5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tdf-LW-LIv"/>
+                            <constraint firstItem="gwJ-Ph-sWw" firstAttribute="height" secondItem="0Sk-Ax-a9N" secondAttribute="height" id="vEa-j8-sm2"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="q5o-nI-Hju" secondAttribute="trailing" constant="8" id="vf1-kt-HJ5"/>
+                            <constraint firstItem="q5o-nI-Hju" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="wYM-Fy-Tkv"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="New Dog" id="Fbf-jy-fDe">
+                        <barButtonItem key="rightBarButtonItem" title="View Dogs" id="RdU-du-nTl">
+                            <connections>
+                                <segue destination="fav-0b-uJX" kind="show" id="Hvt-M2-2ld"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="ageLabel" destination="1sH-mS-Kgh" id="Ns1-KA-AM2"/>
+                        <outlet property="dogNameTextField" destination="VwX-p4-PyI" id="0Bc-b1-VOM"/>
+                        <outlet property="furSwitch" destination="HTP-eg-6m3" id="0et-dW-xxg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1132.5" y="138.38028169014083"/>
+        </scene>
+        <!--Saved Dogs-->
+        <scene sceneID="GaU-Yy-azx">
+            <objects>
+                <viewController title="Saved Dogs" id="fav-0b-uJX" customClass="DogTableViewController" customModule="Core_Data_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eXf-tR-c5I"/>
+                        <viewControllerLayoutGuide type="bottom" id="hFr-H3-s6n"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PCG-QN-1fO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="73" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="a9y-se-jhM">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="dogCell" rowHeight="73" id="YwA-bV-nW0" customClass="DogTableViewCell" customModule="Core_Data_Example" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="73"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YwA-bV-nW0" id="mtk-Cf-UvH">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="72.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vT2-AU-Sjy">
+                                                    <rect key="frame" x="16" y="8" width="56.5" height="56.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="vT2-AU-Sjy" secondAttribute="height" multiplier="1:1" id="Vy2-6A-s7T"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dog Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CCz-Rr-f6B">
+                                                    <rect key="frame" x="88.5" y="8" width="223.5" height="28"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age: 100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pPV-AY-MVE">
+                                                    <rect key="frame" x="88.5" y="37" width="75" height="22"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="75" id="5QZ-If-o5v"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Has Fur" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UMM-Jt-w96" userLabel="Has Fur">
+                                                    <rect key="frame" x="213.5" y="34" width="98.5" height="28"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="28" id="eqn-e2-Vev"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="pPV-AY-MVE" firstAttribute="top" secondItem="CCz-Rr-f6B" secondAttribute="bottom" constant="1" id="CAz-tG-D6x"/>
+                                                <constraint firstItem="pPV-AY-MVE" firstAttribute="leading" secondItem="CCz-Rr-f6B" secondAttribute="leading" id="GyI-7b-lLH"/>
+                                                <constraint firstItem="UMM-Jt-w96" firstAttribute="centerY" secondItem="pPV-AY-MVE" secondAttribute="centerY" id="MEF-P7-DDD"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="vT2-AU-Sjy" secondAttribute="bottom" id="MMQ-WL-Utx"/>
+                                                <constraint firstItem="CCz-Rr-f6B" firstAttribute="leading" secondItem="vT2-AU-Sjy" secondAttribute="trailing" constant="16" id="bGS-he-zxu"/>
+                                                <constraint firstItem="vT2-AU-Sjy" firstAttribute="leading" secondItem="mtk-Cf-UvH" secondAttribute="leadingMargin" constant="8" id="c7h-r7-hjh"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="UMM-Jt-w96" secondAttribute="trailing" id="ngb-fh-3vq"/>
+                                                <constraint firstItem="vT2-AU-Sjy" firstAttribute="top" secondItem="mtk-Cf-UvH" secondAttribute="topMargin" id="tHj-zK-3Ef"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="CCz-Rr-f6B" secondAttribute="trailing" id="vwX-jv-gFN"/>
+                                                <constraint firstAttribute="topMargin" secondItem="CCz-Rr-f6B" secondAttribute="top" id="x6q-J0-E3u"/>
+                                                <constraint firstItem="UMM-Jt-w96" firstAttribute="leading" secondItem="pPV-AY-MVE" secondAttribute="trailing" constant="50" id="yii-3F-XgS"/>
+                                                <constraint firstItem="vT2-AU-Sjy" firstAttribute="centerY" secondItem="mtk-Cf-UvH" secondAttribute="centerY" id="zCt-8V-AiD"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" notEnabled="YES"/>
+                                            <bool key="isElement" value="YES"/>
+                                        </accessibility>
+                                        <connections>
+                                            <outlet property="dogAgeLabel" destination="pPV-AY-MVE" id="f2o-n9-Z5p"/>
+                                            <outlet property="dogHasFurLabel" destination="UMM-Jt-w96" id="aYl-6q-w5r"/>
+                                            <outlet property="dogImageView" destination="vT2-AU-Sjy" id="G7u-Hb-sb7"/>
+                                            <outlet property="dogNameLabel" destination="CCz-Rr-f6B" id="K36-VV-c1Q"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="a9y-se-jhM" firstAttribute="height" secondItem="PCG-QN-1fO" secondAttribute="height" id="AKo-Ae-Gjj"/>
+                            <constraint firstItem="a9y-se-jhM" firstAttribute="centerX" secondItem="PCG-QN-1fO" secondAttribute="centerX" id="Cve-fX-6Wb"/>
+                            <constraint firstItem="a9y-se-jhM" firstAttribute="width" secondItem="PCG-QN-1fO" secondAttribute="width" id="abc-CB-0gL"/>
+                            <constraint firstItem="a9y-se-jhM" firstAttribute="centerY" secondItem="PCG-QN-1fO" secondAttribute="centerY" id="oDE-VH-Pjn"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="dogTableView" destination="a9y-se-jhM" id="ObG-4j-rt2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fgg-qC-EZ2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1856.25" y="139.43661971830986"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Xog-Kt-ikh">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EfJ-LD-jFG" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7hm-cK-8zI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="wTN-eH-wyu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="302-Ps-ZZB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="135" y="138.38028169014083"/>
         </scene>
     </scenes>
 </document>

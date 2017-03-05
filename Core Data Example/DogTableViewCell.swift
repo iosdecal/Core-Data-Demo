@@ -10,6 +10,11 @@ import UIKit
 
 class DogTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var dogNameLabel: UILabel!
+    @IBOutlet weak var dogImageView: UIImageView!
+    @IBOutlet weak var dogHasFurLabel: UILabel!
+    @IBOutlet weak var dogAgeLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
