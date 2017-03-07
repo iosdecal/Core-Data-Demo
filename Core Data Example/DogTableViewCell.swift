@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Cell for the "View Dogs" table view
 class DogTableViewCell: UITableViewCell {
 
     @IBOutlet weak var dogNameLabel: UILabel!
@@ -22,7 +23,6 @@ class DogTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
 
