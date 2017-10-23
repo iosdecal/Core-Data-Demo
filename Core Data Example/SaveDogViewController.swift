@@ -51,7 +51,7 @@ class SaveDogViewController: UIViewController, UITextFieldDelegate {
             
             // Use the context from AppDelegate to store the dog
             let context =  appDelegate.persistentContainer.viewContext
-            let dog = Dog(context: context) // Link Dog & Context
+            let dog = CoreDataDog(context: context) // Link Dog & Context
             dog.name = dogNameTextField.text
             dog.hasFur = furSwitch.isOn
             dog.age = Int16(ageLabel.text!)!

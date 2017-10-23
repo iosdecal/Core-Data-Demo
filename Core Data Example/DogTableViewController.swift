@@ -12,7 +12,7 @@ import UIKit
 class DogTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    var savedDogs: [Dog] = []
+    var savedDogs: [CoreDataDog] = []
     
     @IBOutlet weak var dogTableView: UITableView!
     
@@ -66,7 +66,7 @@ class DogTableViewController: UIViewController, UITableViewDelegate, UITableView
     /// Uses the App Delegate's Context to get the dogs saved to Core Data
     func fetchDogsFromCoreData() {
         do {
-            savedDogs = try context.fetch(Dog.fetchRequest())
+            savedDogs = try context.fetch(CoreDataDog.fetchRequest())
         } catch {
             print("Fetching Dogs from Core Data failed :( ")
         }
