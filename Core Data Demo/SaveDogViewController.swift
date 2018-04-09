@@ -1,6 +1,6 @@
 //
 //  SaveDogViewController.swift
-//  Core Data Example
+//  Core Data Demo
 //
 //  Created by Paige Plander on 3/4/17.
 //  Copyright © 2017 Paige Plander. All rights reserved.
@@ -16,13 +16,13 @@ class SaveDogViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var dogNameTextField: UITextField!
     @IBOutlet weak var furSwitch: UISwitch!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // need to use the Text Field delegate to resign the keyboard when pressing return
         dogNameTextField.delegate = self
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         resetUI()
@@ -33,7 +33,7 @@ class SaveDogViewController: UIViewController, UITextFieldDelegate {
         dogNameTextField.text = ""
         furSwitch.isOn = true
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -42,35 +42,34 @@ class SaveDogViewController: UIViewController, UITextFieldDelegate {
         // display the age the user has picked in the age label
         ageLabel.text = "\(Int(sender.value))"
     }
-    
+
     /// Uses the user inputted data (name, age, fur) to create a Dog Object, and stores that object in core data
     @IBAction func saveDogButtonPressed(_ sender: UIButton) {
         // saves the dog the user inputted as a Dog Object in core data
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         if dogNameTextField.text != nil {
-            
+
             // Use the context from AppDelegate to store the dog
             let context =  appDelegate.persistentContainer.viewContext
             let dog = CoreDataDog(context: context) // Link Dog & Context
             dog.name = dogNameTextField.text
             dog.hasFur = furSwitch.isOn
             dog.age = Int16(ageLabel.text!)!
-            
+
             // save the dog to core data. Check out the saveContext method in AppDelegate.swift
             appDelegate.saveContext()
-            
+
             // present an alert to let the user know dog was saved
             presentConfirmationAlert()
         }
         resetUI()
     }
-    
-    
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
     }
-    
+
     /// No new stuff in here - just creates an alert to let the user know the dog was saved
     func presentConfirmationAlert() {
         let alert = UIAlertController(title: "Dog Saved to Core Data!", message: "You can view your new dog by clicking `View Dogs`", preferredStyle: UIAlertControllerStyle.alert)
@@ -78,4 +77,3 @@ class SaveDogViewController: UIViewController, UITextFieldDelegate {
         self.present(alert, animated: true, completion: nil)
     }
 }
-
