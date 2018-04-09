@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Core Data Example.xcodeproj">
+      location = "self:/Users/chriszielinski/iosdecal/Core-Data-Demo/Core Data Demo.xcodeproj">
    </FileRef>
 </Workspace>

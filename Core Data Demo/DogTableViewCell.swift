@@ -1,6 +1,6 @@
 //
 //  DogTableViewCell.swift
-//  Core Data Example
+//  Core Data Demo
 //
 //  Created by Paige Plander on 3/4/17.
 //  Copyright © 2017 Paige Plander. All rights reserved.
@@ -15,7 +15,7 @@ class DogTableViewCell: UITableViewCell {
     @IBOutlet weak var dogImageView: UIImageView!
     @IBOutlet weak var dogHasFurLabel: UILabel!
     @IBOutlet weak var dogAgeLabel: UILabel!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -25,5 +25,5 @@ class DogTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
     }
-    
+
 }
