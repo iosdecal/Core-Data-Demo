@@ -40,11 +40,8 @@ class DogTableViewController: UIViewController, UITableViewDelegate, UITableView
     /// Cutomize each cell with each saved dog's attributes
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = dogTableView.dequeueReusableCell(withIdentifier: "dogCell") as? DogTableViewCell {
-            let dog = savedDogs[indexPath.row]
-            cell.dogNameLabel.text = dog.name
-            cell.dogAgeLabel.text = "Age: \(dog.age)"
-            cell.dogHasFurLabel.text = "Has fur?    \(dog.hasFur)"
-            cell.dogImageView.image = UIImage(named: dog.name!) ?? UIImage(named: "default")
+			// TODO: Setup dog cell.
+            cell.dogImageView.image = UIImage(named: "") ?? UIImage(named: "default")
             cell.isUserInteractionEnabled = true
             return cell
         }
@@ -54,22 +51,16 @@ class DogTableViewController: UIViewController, UITableViewDelegate, UITableView
     /// Allows user to delete dogs from the table view
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let dog = savedDogs[indexPath.row]
-            context.delete(dog)
-            (UIApplication.shared.delegate as! AppDelegate).saveContext()
+			// TODO: delete dog.
             // now that we've deleted a dog, need to update the savedDogs array again
-            fetchDogsFromCoreData()
+//            fetchDogsFromCoreData()
         }
         tableView.reloadData()
     }
 
     /// Uses the App Delegate's Context to get the dogs saved to Core Data
     func fetchDogsFromCoreData() {
-        do {
-            savedDogs = try context.fetch(CoreDataDog.fetchRequest())
-        } catch {
-            print("Fetching Dogs from Core Data failed :( ")
-        }
+		// TODO: Fetch dogs.
     }
 
 }

@@ -54,18 +54,12 @@ class SaveDogViewController: UIViewController, UITextFieldDelegate {
     /// Uses the user inputted data (name, age, fur) to create a Dog Object, and stores that object in core data
     @IBAction func saveDogButtonPressed(_ sender: UIButton) {
         // saves the dog the user inputted as a Dog Object in core data
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+		let appDelegate = UIApplication.shared.delegate as! AppDelegate
         if dogNameTextField.text != nil {
 
-            // Use the context from AppDelegate to store the dog
-            let context =  appDelegate.persistentContainer.viewContext
-            let dog = CoreDataDog(context: context) // Link Dog & Context
-            dog.name = dogNameTextField.text
-            dog.hasFur = furSwitch.isOn
-            dog.age = ageValue
+			// TODO: use the context from AppDelegate to store the dog
 
-            // save the dog to core data. Check out the saveContext method in AppDelegate.swift
-            appDelegate.saveContext()
+			// TODO: save the dog to core data. Check out the saveContext method in AppDelegate.swift
 
             // present an alert to let the user know dog was saved
             presentConfirmationAlert()
