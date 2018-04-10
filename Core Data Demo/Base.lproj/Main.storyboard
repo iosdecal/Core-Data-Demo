@@ -123,6 +123,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="ageLabel" destination="1sH-mS-Kgh" id="Ns1-KA-AM2"/>
+                        <outlet property="ageStepper" destination="jvz-ww-Nkv" id="8od-mb-3AQ"/>
                         <outlet property="dogNameTextField" destination="VwX-p4-PyI" id="0Bc-b1-VOM"/>
                         <outlet property="furSwitch" destination="HTP-eg-6m3" id="0et-dW-xxg"/>
                     </connections>
