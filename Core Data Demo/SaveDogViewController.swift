@@ -16,6 +16,13 @@ class SaveDogViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var dogNameTextField: UITextField!
     @IBOutlet weak var furSwitch: UISwitch!
+	@IBOutlet var ageStepper: UIStepper!
+	
+	var ageValue: Int16 = 0 {
+		didSet {
+			ageLabel.text = "\(ageValue)"
+		}
+	}
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,9 +36,10 @@ class SaveDogViewController: UIViewController, UITextFieldDelegate {
     }
 
     func resetUI() {
-        ageLabel.text = "\(0)"
+		ageValue = 0
         dogNameTextField.text = ""
         furSwitch.isOn = true
+		ageStepper.value = 0
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,7 +48,7 @@ class SaveDogViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func ageStepperValueChanged(_ sender: UIStepper) {
         // display the age the user has picked in the age label
-        ageLabel.text = "\(Int(sender.value))"
+		ageValue = Int16(sender.value)
     }
 
     /// Uses the user inputted data (name, age, fur) to create a Dog Object, and stores that object in core data
@@ -54,7 +62,7 @@ class SaveDogViewController: UIViewController, UITextFieldDelegate {
             let dog = CoreDataDog(context: context) // Link Dog & Context
             dog.name = dogNameTextField.text
             dog.hasFur = furSwitch.isOn
-            dog.age = Int16(ageLabel.text!)!
+            dog.age = ageValue
 
             // save the dog to core data. Check out the saveContext method in AppDelegate.swift
             appDelegate.saveContext()
